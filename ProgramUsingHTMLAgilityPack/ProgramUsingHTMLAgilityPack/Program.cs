@@ -15,7 +15,11 @@ namespace ProgramUsingHTMLAgilityPack
             HtmlWeb web = new HtmlWeb();
             HtmlDocument document = web.Load("http://www.c-sharpcorner.com");
 
-            Console.WriteLine(document.DocumentNode.OuterHtml);           
+            //Console.WriteLine(document.DocumentNode.OuterHtml);
+
+            var node = document.DocumentNode.SelectSingleNode("//head/title");
+
+            Console.WriteLine(node.Name +"\n" + node.OuterHtml);
         }
     }
 }
