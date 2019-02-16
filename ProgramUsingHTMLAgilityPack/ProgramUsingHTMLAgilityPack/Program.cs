@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,12 @@ namespace ProgramUsingHTMLAgilityPack
     // Program to load html page from web using HTMLAgilityPack
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument document = web.Load("http://www.c-sharpcorner.com");
+
+            Console.WriteLine(document.DocumentNode.OuterHtml);           
         }
     }
 }
