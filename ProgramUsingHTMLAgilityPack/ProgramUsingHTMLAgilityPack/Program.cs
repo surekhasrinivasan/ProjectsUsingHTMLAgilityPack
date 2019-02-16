@@ -19,7 +19,14 @@ namespace ProgramUsingHTMLAgilityPack
 
             var node = document.DocumentNode.SelectSingleNode("//head/title");
 
-            Console.WriteLine(node.Name +"\n" + node.OuterHtml);
+            Console.WriteLine("Node Name: " + node.Name + "\n" + node.OuterHtml);
+
+            var titles = document.DocumentNode.SelectNodes("//a[@class='title']").ToList();
+
+            foreach(var title in titles)
+            {
+                Console.WriteLine(title.InnerText);
+            }                
         }
     }
 }
