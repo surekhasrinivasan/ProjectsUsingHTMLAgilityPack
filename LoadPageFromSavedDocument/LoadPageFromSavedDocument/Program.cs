@@ -15,11 +15,18 @@ namespace LoadPageFromSavedDocument
             HtmlDocument document = new HtmlDocument();
             document.Load(@"C:\Users\sreen\source\repos\HTMLAgilityPackProjects\LoadPageFromSavedDocument\Sample.txt");
 
-            var nodes = document.DocumentNode.SelectNodes("//a").ToArray();
-            foreach(var node in nodes)
-            {
-                Console.WriteLine(node.InnerHtml);
-            }
+            // prints all the hyperlinks from the Sample.txt document
+            //var nodes = document.DocumentNode.SelectNodes("//a").ToArray();
+            //foreach(var node in nodes)
+            //{
+            //    Console.WriteLine(node.InnerHtml);
+            //}
+
+            // Prints specific div from the Sample.txt document
+            var node = document.DocumentNode.SelectNodes("//div[@id='div1']").First();
+
+            Console.WriteLine(node.InnerText);
+
         }
     }
 }
